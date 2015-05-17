@@ -1,2 +1,5 @@
 coverage
-*.pyc
+geohash.py.egg-info
+.coverage
+geohash/*.pyc
+tests/*.pyc
