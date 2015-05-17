@@ -47,8 +47,6 @@ public class GeoHashTestCase {
 
         double lng = latlng[1];
         assertThat((int)lng, is(139));
-
-        Direction.BOTTOM.get();
     }
 
     @Test(expected=IllegalArgumentException.class)
