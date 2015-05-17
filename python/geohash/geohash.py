@@ -26,7 +26,7 @@ class GeoHash(object):
             self.base32[i] = c
             self.base32[c] = i
 
-    def encode(self,latitude,longitude):
+    def encode(self, latitude, longitude):
         latitude = float(latitude)
         longitude = float(longitude)
 
@@ -36,7 +36,7 @@ class GeoHash(object):
         bits = []
         length = (self.precision * 5) / 2
 
-        for i in range(0,length):
+        for i in range(0, length):
             lng_middle = self.middle(lng_interval)
             lat_middle = self.middle(lat_interval)
 
@@ -66,7 +66,7 @@ class GeoHash(object):
 
         return ''.join(hash)
 
-    def decode(self,geohash):
+    def decode(self, geohash):
         intervals = self.decode_interval(geohash)
         latitude  = self.middle(intervals[0])
         longitude = self.middle(intervals[1])
@@ -86,7 +86,7 @@ class GeoHash(object):
         lats = []
         lngs = []
 
-        for i in range(0,len(bits)):
+        for i in range(0, len(bits)):
             bit = bits[i]
 
             if i % 2 != 0:
@@ -150,7 +150,7 @@ class GeoHash(object):
 
         return neighbors
 
-    def middle(self,ary):
+    def middle(self, ary):
         return (ary[0] + ary[1]) / 2
 
     def oct2bin(self, octal):
