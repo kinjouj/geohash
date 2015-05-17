@@ -1,0 +1,40 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+
+repositories {
+    mavenCentral();
+}
+
+dependencies {
+    compile "org.apache.commons:commons-lang3:3.1"
+    testCompile "junit:junit:4.11"
+    testCompile "org.hamcrest:hamcrest-all:1.3"
+}
+
+ext {
+    targetDir = "target"
+}
+
+buildDir = targetDir
+
+sourceSets {
+    main {
+        output.classesDir = "${buildDir}/classes"
+    }
+
+    test {
+        output.classesDir = "${buildDir}/test-classes"
+    }
+}
+
+javadoc {
+    destinationDir = file("javadoc")
+}
+
+eclipse.classpath.file {
+    whenMerged { classpath ->
+        classpath.entries.findAll { entry ->
+            entry.kind == "output"
+        }*.path = "/${project.name}/${targetDir}/classes"
+    }
+}

@@ -1,0 +1,12 @@
+.classpath
+.djunitplugin
+.gradle
+.project
+.settings
+bin/
+build/
+target/
+cov/
+javadoc/
+doc/
+jcoverage.ser
