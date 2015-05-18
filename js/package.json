@@ -1,0 +1,20 @@
+{
+  "name": "geohash",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jest-cli": "^0.4.5",
+    "npm-watch": "0.0.0"
+  },
+  "watch": {
+    "test": "{js,js/__tests__}/*.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "watch": "npm-watch"
+  },
+  "jest": {
+    "rootDir": "js",
+    "collectCoverage": true,
+    "scriptPreprocessor": "../preprocessor.js"
+  }
+}
